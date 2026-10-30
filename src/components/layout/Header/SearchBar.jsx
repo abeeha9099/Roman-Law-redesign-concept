@@ -11,13 +11,13 @@ export default function SearchBar({ onClose }) {
   }, [])
 
   return (
-    <div id="site-search" className="on-light absolute inset-x-0 top-full bg-paper shadow-[0_18px_40px_rgba(10,42,48,0.22)]">
+    <div id="site-search" className="on-light absolute inset-x-0 top-full mt-3 overflow-hidden rounded-3xl bg-white shadow-[0_18px_40px_rgba(10,42,48,0.25)]">
       <form
         role="search"
         action={SEARCH_URL}
         method="get"
         target="_blank"
-        className="mx-auto flex w-full max-w-[1200px] items-center gap-3 px-4 py-5 md:px-6"
+        className="flex w-full items-center gap-3 px-5 py-5 md:px-8"
       >
         <label htmlFor="site-search-input" className="sr-only">
           Search romanolaw.com
@@ -30,11 +30,11 @@ export default function SearchBar({ onClose }) {
           type="search"
           required
           placeholder="Search practice areas, articles and videos"
-          className="h-12 min-w-0 flex-1 border-0 border-b border-line bg-transparent font-display text-xl text-ink placeholder:text-slate/70 focus:border-teal-700 focus:outline-none"
+          className="h-12 min-w-0 flex-1 border-0 border-b border-line bg-transparent text-xl font-medium text-ink placeholder:text-slate/70 focus:border-teal-700 focus:outline-none"
         />
         <button
           type="submit"
-          className="h-12 rounded-sm bg-teal-800 px-6 text-[15px] font-semibold text-white hover:bg-teal-900"
+          className="h-12 rounded-full bg-teal-800 px-6 text-[15px] font-semibold text-white hover:bg-teal-900"
         >
           Search
         </button>

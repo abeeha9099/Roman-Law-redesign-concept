@@ -33,6 +33,7 @@ export const press = [
 export const flatRatePlans = [
   {
     name: 'Fractional Legal Department™',
+    category: 'Ongoing support',
     href: '/fractional-legal-department/',
     summary:
       'Dedicated legal support from senior attorneys who know your business, without the cost or complexity of a full-time hire.',
@@ -40,50 +41,74 @@ export const flatRatePlans = [
   },
   {
     name: 'Monthly Flat-Rate Litigation Services',
+    category: 'Disputes',
     href: '/monthly-flat-rate-litigation-services/',
     summary: 'A monthly flat-rate option for litigation, with the scope defined together with you.',
     detail: 'Effective for complex commercial and employment disputes.',
   },
   {
     name: 'Project-Based Flat-Rate Representation',
+    category: 'Single project',
     href: '/project-based-flat-rate-representation/',
     summary: 'For clients with specific, time-limited legal needs.',
     detail: 'One fixed price for a defined scope of work.',
   },
   {
     name: 'Interim Legal Department™ Services',
+    category: 'Temporary cover',
     href: '/interim-legal-department-services/',
     summary: "Temporary legal support that fills gaps in a company's in-house legal team.",
     detail: 'Support for companies between General Counsel.',
   },
 ]
 
+// Card photos are the firm's own photography (decorative); the descriptions are the live site's wording.
 export const practiceAreas = [
   {
     name: 'Business',
     href: '/business/',
+    image: '/images/photos/two-women.webp',
     text: 'We provide clarity, guidance and strategic business law counsel to our clients as they establish their entities, raise financing and buy or sell assets.',
   },
   {
     name: 'Entertainment',
     href: '/entertainment/',
+    image: '/images/photos/client-team.png',
     text: 'We represent individuals and businesses in the film, television, theatre, live entertainment, music, sports, social media and publishing industries.',
   },
   {
     name: 'Disputes',
     href: '/disputes/',
+    image: '/images/photos/senior-counsel.png',
     text: 'Whether you need to enforce or protect your rights, our experienced litigators can help you in federal and state courts and with arbitration and mediation.',
   },
   {
     name: 'Employment',
     href: '/employment/',
+    image: '/images/photos/operations-team.jpg',
     text: 'We can advise you on your legal rights and obligations under state and federal employment laws, including those involving compensation, safe working environments, privacy, discrimination, retaliation and harassment.',
   },
   {
     name: 'Intellectual Property',
     href: '/ip/',
+    image: '/images/photos/business-lawyers.webp',
     text: 'We can help you protect your ideas, creative content and brands.',
   },
+  {
+    name: 'Flat Rates',
+    href: '/business/reimagining-legal-services-with-flat-rates/',
+    image: '/images/photos/domenic-and-shaliz.jpg',
+    text: 'We give businesses of all sizes access to an experienced team of legal counsel, managing risk and guiding their growth.',
+  },
+]
+
+// Every figure here is counted from the live site: "over 20 years" (Flat Rates page), the ten office
+// locations, the five practice areas and the four flat-rate plans.
+export const stats = [
+  { value: '20+', label: 'Years serving businesses', icon: 'award' },
+  { value: '10', label: 'Offices across the U.S.', icon: 'map' },
+  { value: '5', label: 'Practice areas', icon: 'scale' },
+  { value: '4', label: 'Flat-rate plans', icon: 'layers' },
 ]
 
 export const coreValues = [

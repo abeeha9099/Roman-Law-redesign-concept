@@ -1,67 +1,82 @@
 import { ArrowUpRight } from 'lucide-react'
-import Section from '../components/ui/Section.jsx'
+import Container from '../components/ui/Container.jsx'
+import Pill from '../components/ui/Pill.jsx'
+import Button from '../components/ui/Button.jsx'
 import BookingButton from '../components/ui/BookingButton.jsx'
 import SmartLink from '../components/ui/SmartLink.jsx'
 import { flatRatePlans } from '../data/site.js'
 
+// The reference's Titles / Categories list, applied to the four real flat-rate plans.
 export default function FlatRates() {
   return (
-    <Section tone="dark" id="flat-rates" labelledBy="flat-rates-title">
-      <div className="grid gap-8 xl:grid-cols-12 xl:gap-16">
-        <h2 id="flat-rates-title" className="text-h2 max-w-[16ch] xl:col-span-6">
-          Flat-rate legal services, without the billable hour.
-        </h2>
-        <p className="text-lead text-teal-200 xl:col-span-6 xl:self-end">
-          Our flat-rate model offers clients cost certainty, proactive counsel, and access to elite attorneys, all
-          without the unpredictability of hourly billing.
-        </p>
-      </div>
-
-      <ul className="mt-14 border-t border-gold/70 md:mt-20">
-        {flatRatePlans.map((plan) => (
-          <li
-            key={plan.name}
-            className="group relative grid gap-4 border-b border-gold/70 py-8 transition-colors duration-200 hover:bg-teal-800/40 md:grid-cols-12 md:gap-10 md:px-2 md:py-10"
-          >
-            <span
-              aria-hidden="true"
-              className="absolute inset-y-0 left-0 w-1 origin-top scale-y-0 bg-gold transition-transform duration-300 group-hover:scale-y-100 group-focus-within:scale-y-100"
-            />
-            <h3 className="text-h3 md:col-span-5 md:pl-4">
-              <SmartLink href={plan.href} className="after:absolute after:inset-0 focus-visible:after:outline-3">
-                {plan.name}
-              </SmartLink>
-            </h3>
-            <div className="md:col-span-5">
-              <p className="text-white">{plan.summary}</p>
-              <p className="mt-2 text-[15px] text-teal-200">{plan.detail}</p>
+    <section id="flat-rates" aria-labelledby="flat-rates-title" className="bg-white py-20 md:py-28">
+      <Container>
+        <div className="grid gap-8 xl:grid-cols-12 xl:gap-16">
+          <div className="xl:col-span-7">
+            <Pill>Flat rates</Pill>
+            <h2 id="flat-rates-title" className="text-h2 mt-5 max-w-[16ch] text-ink">
+              Flat-rate legal services, without the billable hour
+            </h2>
+          </div>
+          <div className="xl:col-span-5">
+            <p className="text-slate">
+              Our flat-rate model offers clients cost certainty, proactive counsel, and access to elite attorneys, all
+              without the unpredictability of hourly billing.
+            </p>
+            <div className="mt-6">
+              <Button href="/business/flat-rates/" arrow>
+                How flat rates work
+              </Button>
             </div>
-            <span className="inline-flex items-center gap-1 text-[15px] font-semibold md:col-span-2 md:justify-end">
-              See plan
-              <ArrowUpRight
-                aria-hidden="true"
-                size={18}
-                className="transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-              />
-            </span>
-          </li>
-        ))}
-      </ul>
-
-      <div className="mt-12 flex flex-col gap-6 md:mt-16 md:flex-row md:items-center md:justify-between">
-        <p className="max-w-[26em] font-display text-2xl text-white md:text-3xl">
-          Romano Law is on a mission to abolish the billable hour.
-        </p>
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-          <BookingButton variant="inverse" />
-          <SmartLink
-            href="/business/flat-rates/"
-            className="py-2 text-center font-medium underline decoration-gold underline-offset-4 hover:text-teal-200"
-          >
-            How flat rates work
-          </SmartLink>
+          </div>
         </div>
-      </div>
-    </Section>
+
+        <div className="mt-14 md:mt-20">
+          <div
+            aria-hidden="true"
+            className="hidden grid-cols-12 gap-8 border-b border-line pb-4 text-lg font-medium text-slate md:grid"
+          >
+            <span className="col-span-4">Plan</span>
+            <span className="col-span-2">Category</span>
+            <span className="col-span-5">What it covers</span>
+          </div>
+          <ul>
+            {flatRatePlans.map((plan) => (
+              <li
+                key={plan.name}
+                className="group relative grid gap-4 border-b border-line py-7 transition-colors duration-200 hover:bg-teal-50 md:grid-cols-12 md:items-center md:gap-8 md:px-2 md:py-8"
+              >
+                <h3 className="text-h3 text-ink md:col-span-4">
+                  <SmartLink href={plan.href} className="after:absolute after:inset-0">
+                    {plan.name}
+                  </SmartLink>
+                </h3>
+                <div className="md:col-span-2">
+                  <Pill tone="card">{plan.category}</Pill>
+                </div>
+                <div className="md:col-span-5">
+                  <p className="text-ink">{plan.summary}</p>
+                  <p className="mt-1 text-[15px] text-slate">{plan.detail}</p>
+                </div>
+                <span
+                  aria-hidden="true"
+                  className="hidden h-12 w-12 place-items-center justify-self-end rounded-full border border-gold text-teal-900 transition-colors duration-200 group-hover:bg-gold md:col-span-1 md:grid"
+                >
+                  <ArrowUpRight size={20} />
+                </span>
+                <span className="text-[15px] font-semibold text-teal-800 md:hidden">See plan</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="mt-12 flex flex-col gap-6 md:mt-16 md:flex-row md:items-center md:justify-between">
+          <p className="max-w-[24em] text-2xl font-semibold tracking-tight text-ink md:text-3xl">
+            Romano Law is on a mission to abolish the billable hour.
+          </p>
+          <BookingButton />
+        </div>
+      </Container>
+    </section>
   )
 }

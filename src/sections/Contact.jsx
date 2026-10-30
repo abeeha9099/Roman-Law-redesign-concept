@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { AlertCircle } from 'lucide-react'
-import Section from '../components/ui/Section.jsx'
+import PanelSection from '../components/ui/PanelSection.jsx'
+import Pill from '../components/ui/Pill.jsx'
 import Button from '../components/ui/Button.jsx'
 import BookingButton from '../components/ui/BookingButton.jsx'
 import { PHONE } from '../data/site.js'
@@ -37,9 +38,18 @@ function Field({ id, label, error, required = true, children }) {
 }
 
 const inputClass = (error) =>
-  `w-full rounded-sm border bg-teal-50 px-4 py-3 text-base text-ink placeholder:text-slate/70 focus:border-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-700/40 ${
+  `w-full rounded-xl border bg-teal-50 px-4 py-3 text-base text-ink placeholder:text-slate/70 focus:border-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-700/40 ${
     error ? 'border-error' : 'border-line'
   }`
+
+function Background() {
+  return (
+    <div
+      aria-hidden="true"
+      className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_85%_90%,#14525e_0%,#0e3b43_45%,#0a2a30_85%)]"
+    />
+  )
+}
 
 export default function Contact() {
   const [values, setValues] = useState({ name: '', phone: '', email: '', message: '', trap: '' })
@@ -68,17 +78,18 @@ export default function Contact() {
   }
 
   return (
-    <Section tone="dark" id="contact" labelledBy="contact-title">
+    <PanelSection id="contact" labelledBy="contact-title" background={<Background />}>
       <div className="grid gap-12 xl:grid-cols-12 xl:gap-16">
         <div className="xl:col-span-5">
-          <h2 id="contact-title" className="text-h2">
+          <Pill tone="dark">Contact</Pill>
+          <h2 id="contact-title" className="text-h2 mt-5">
             Schedule an appointment for a case evaluation
           </h2>
           <p className="text-lead mt-6 max-w-[28em] text-teal-200">
             For more information or to speak to an experienced professional, book now.
           </p>
           <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
-            <BookingButton variant="inverse" />
+            <BookingButton />
             <a
               href={PHONE.href}
               className="py-2 text-center text-lg font-medium underline decoration-gold underline-offset-4 hover:text-teal-200"
@@ -92,7 +103,7 @@ export default function Contact() {
           noValidate
           onSubmit={onSubmit}
           aria-label="Case evaluation request"
-          className="on-light grid gap-6 bg-white p-6 text-ink md:p-10 xl:col-span-7"
+          className="on-light grid gap-6 rounded-3xl bg-white p-6 text-ink md:p-10 xl:col-span-7"
         >
           <Field id="contact-name" label="Name" error={errors.name}>
             <input
@@ -160,7 +171,7 @@ export default function Contact() {
             </p>
           )}
           {status === 'not-connected' && (
-            <div role="status" className="border-l-4 border-teal-700 bg-teal-50 p-4 text-[15px]">
+            <div role="status" className="rounded-2xl border-l-4 border-teal-700 bg-teal-50 p-4 text-[15px]">
               <p className="font-semibold text-teal-900">Your details were not sent.</p>
               <p className="mt-1 text-slate">
                 Online submission is not connected yet. To reach the firm now, book a call online or phone{' '}
@@ -173,10 +184,12 @@ export default function Contact() {
           )}
 
           <div>
-            <Button type="submit">Send request</Button>
+            <Button type="submit" arrow>
+              Send request
+            </Button>
           </div>
         </form>
       </div>
-    </Section>
+    </PanelSection>
   )
 }

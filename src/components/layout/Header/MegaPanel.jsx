@@ -7,8 +7,8 @@ export default function MegaPanel({ areas, onNavigate }) {
   const area = areas[active]
 
   return (
-    <div className="max-h-[calc(100vh-5rem)] overflow-y-auto bg-paper text-ink shadow-[0_18px_40px_rgba(10,42,48,0.22)]">
-      <div className="mx-auto grid w-full max-w-[1320px] grid-cols-[280px_1fr] gap-10 px-6 py-8">
+    <div className="max-h-[calc(100vh-8rem)] overflow-y-auto rounded-3xl bg-white text-ink shadow-[0_18px_40px_rgba(10,42,48,0.25)]">
+      <div className="grid grid-cols-[280px_1fr] gap-10 px-8 py-8">
         <ul aria-label="Practice areas" className="border-r border-line pr-6">
           {areas.map((a, i) => (
             <li key={a.href}>
@@ -18,8 +18,8 @@ export default function MegaPanel({ areas, onNavigate }) {
                 onFocus={() => setActive(i)}
                 onClick={() => setActive(i)}
                 aria-pressed={i === active}
-                className={`flex w-full items-center justify-between px-4 py-3 text-left font-display text-xl transition-colors ${
-                  i === active ? 'bg-teal-100 text-teal-800' : 'hover:bg-teal-50'
+                className={`flex w-full items-center justify-between px-4 py-3 text-left text-xl font-semibold tracking-tight transition-colors ${
+                  i === active ? 'rounded-2xl bg-teal-100 text-teal-800' : 'rounded-2xl hover:bg-teal-50'
                 }`}
               >
                 {a.label}
@@ -32,7 +32,7 @@ export default function MegaPanel({ areas, onNavigate }) {
           <SmartLink
             href={area.href}
             onClick={onNavigate}
-            className="mb-4 inline-flex items-center gap-2 font-display text-2xl text-teal-800 underline decoration-teal-700/40 underline-offset-4 hover:decoration-teal-700"
+            className="mb-4 inline-flex items-center gap-2 text-2xl font-semibold tracking-tight text-teal-800 underline decoration-teal-700/40 underline-offset-4 hover:decoration-teal-700"
           >
             All {area.label} services
             <ArrowRight aria-hidden="true" size={18} />

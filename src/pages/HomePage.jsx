@@ -2,7 +2,7 @@ import Hero from '../sections/Hero.jsx'
 import PressStrip from '../sections/PressStrip.jsx'
 import FlatRates from '../sections/FlatRates.jsx'
 import PracticeAreas from '../sections/PracticeAreas.jsx'
-import Values from '../sections/Values.jsx'
+import About from '../sections/About.jsx'
 import Credentials from '../sections/Credentials.jsx'
 import Team from '../sections/Team.jsx'
 import Media from '../sections/Media.jsx'
@@ -15,9 +15,9 @@ export default function HomePage() {
     <>
       <Hero />
       <PressStrip />
-      <FlatRates />
+      <About />
       <PracticeAreas />
-      <Values />
+      <FlatRates />
       <Credentials />
       <Team />
       <Media />

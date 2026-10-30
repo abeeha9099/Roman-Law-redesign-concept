@@ -16,7 +16,7 @@ function Accordion({ label, level = 1, children }) {
         aria-controls={id}
         onClick={() => setOpen((v) => !v)}
         className={`flex w-full items-center justify-between text-left ${
-          level === 1 ? 'min-h-16 font-display text-3xl' : 'min-h-14 pl-4 font-display text-xl text-teal-200'
+          level === 1 ? 'min-h-16 text-3xl font-semibold tracking-tight' : 'min-h-14 pl-4 text-xl font-semibold tracking-tight text-teal-200'
         }`}
       >
         {label}
@@ -142,17 +142,17 @@ export default function MobileMenu({ open, onClose }) {
           ['Contact', '/contact/'],
         ].map(([label, href]) => (
           <div key={label} className="border-b border-white/15">
-            <SmartLink href={href} onClick={onClose} className="flex min-h-16 items-center font-display text-3xl">
+            <SmartLink href={href} onClick={onClose} className="flex min-h-16 items-center text-3xl font-semibold tracking-tight">
               {label}
             </SmartLink>
           </div>
         ))}
 
         <div className="mt-8 grid gap-3">
-          <BookingButton variant="inverse" />
+          <BookingButton />
           <a
             href={PHONE.href}
-            className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-sm border border-white/40 text-base font-semibold hover:bg-white/10"
+            className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-full border border-white/40 text-base font-semibold hover:bg-white/10"
           >
             <Phone aria-hidden="true" size={18} />
             Call {PHONE.display}

@@ -9,8 +9,8 @@ export default function PlaceholderPage() {
   const { pathname } = useLocation()
   const liveUrl = `https://www.romanolaw.com${pathname}`
   return (
-    <Section tone="paper" labelledBy="placeholder-title" className="min-h-[60vh]">
-      <h1 id="placeholder-title" className="text-h2 max-w-[18ch] text-teal-900">
+    <Section tone="white" labelledBy="placeholder-title" className="min-h-[70vh] !pt-36">
+      <h1 id="placeholder-title" className="text-h2 max-w-[18ch] text-ink">
         This page has not been redesigned yet
       </h1>
       <p className="mt-6 max-w-[34em] text-slate">
@@ -18,8 +18,10 @@ export default function PlaceholderPage() {
         current Romano Law website.
       </p>
       <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-        <Button href={liveUrl}>View this page on romanolaw.com</Button>
-        <BookingButton variant="primary" className="!bg-transparent !text-teal-800 border border-teal-800 hover:!bg-teal-100" />
+        <Button href={liveUrl} variant="outlineDark">
+          View this page on romanolaw.com
+        </Button>
+        <BookingButton />
       </div>
     </Section>
   )

@@ -1,37 +1,48 @@
-import Section from '../components/ui/Section.jsx'
+import { Quote } from 'lucide-react'
+import PanelSection from '../components/ui/PanelSection.jsx'
+import Pill from '../components/ui/Pill.jsx'
+import Button from '../components/ui/Button.jsx'
 import { REVIEWS_URL, testimonials } from '../data/site.js'
+
+function Background() {
+  return (
+    <div
+      aria-hidden="true"
+      className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_20%_0%,#14525e_0%,#0e3b43_45%,#0a2a30_85%)]"
+    />
+  )
+}
 
 export default function Testimonials() {
   return (
-    <Section tone="paper" id="reviews" labelledBy="reviews-title">
-      <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
-        <h2 id="reviews-title" className="text-h2 text-teal-900">
-          Why clients trust us
-        </h2>
-        <a
-          href={REVIEWS_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="font-semibold text-teal-800 underline underline-offset-4 hover:text-teal-900"
-        >
+    <PanelSection id="reviews" labelledBy="reviews-title" background={<Background />}>
+      <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+        <div>
+          <Pill tone="dark">Testimonials</Pill>
+          <h2 id="reviews-title" className="text-h2 mt-5">
+            Why clients <span className="text-gold">trust us</span>
+          </h2>
+        </div>
+        <Button href={REVIEWS_URL} variant="outline">
           View all reviews on Google
-        </a>
+        </Button>
       </div>
-      <ul className="mt-10 grid gap-10 md:mt-14 xl:grid-cols-3 xl:gap-12">
+      <ul className="mt-12 grid gap-5 md:mt-16 xl:grid-cols-3">
         {testimonials.map((t) => (
-          <li key={t.name} className="border-t-2 border-teal-700 pt-6">
-            <figure>
-              <blockquote className="font-display text-xl italic leading-snug text-ink md:text-[22px]">
+          <li key={t.name}>
+            <figure className="flex h-full flex-col rounded-3xl border border-white/15 bg-white/[0.07] p-7 backdrop-blur-sm">
+              <Quote aria-hidden="true" size={28} className="text-gold" />
+              <blockquote className="mt-4 flex-1 font-serif text-xl italic leading-snug text-white md:text-[22px]">
                 <p>{t.quote}</p>
               </blockquote>
-              <figcaption className="mt-6 text-[15px] font-semibold text-teal-900">
+              <figcaption className="mt-6 border-t border-white/15 pt-4 text-[15px] font-semibold">
                 {t.name}
-                {t.role && <span className="block font-normal text-slate">{t.role}</span>}
+                {t.role && <span className="block font-normal text-teal-200">{t.role}</span>}
               </figcaption>
             </figure>
           </li>
         ))}
       </ul>
-    </Section>
+    </PanelSection>
   )
 }

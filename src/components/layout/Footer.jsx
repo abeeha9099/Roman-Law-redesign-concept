@@ -16,7 +16,8 @@ const quickLinks = [
 
 export default function Footer() {
   return (
-    <footer className="on-dark bg-teal-950 pt-16 text-white md:pt-20">
+    <footer className="bg-white px-3 pb-3 pt-3 md:px-5 md:pb-5 md:pt-4">
+      <div className="on-dark rounded-[28px] bg-teal-950 pt-16 text-white md:rounded-[36px] md:pt-20">
       <Container>
         <div className="grid gap-12 xl:grid-cols-12">
           <div className="xl:col-span-5">
@@ -30,12 +31,12 @@ export default function Footer() {
                 className="h-10 w-auto brightness-0 invert"
               />
             </Link>
-            <p className="mt-8 font-display text-2xl text-teal-200">Call us today</p>
-            <a href={PHONE.href} className="mt-1 inline-block font-display text-4xl hover:text-teal-200">
+            <p className="mt-8 text-xl font-semibold text-teal-200">Call us today</p>
+            <a href={PHONE.href} className="mt-1 inline-block text-4xl font-bold tracking-tight hover:text-teal-200">
               {PHONE.display}
             </a>
             <div className="mt-6">
-              <Button href="/contact" variant="outline">
+              <Button href="/contact" variant="gold" arrow>
                 Let's talk
               </Button>
             </div>
@@ -43,7 +44,7 @@ export default function Footer() {
 
           <nav aria-label="Footer" className="grid grid-cols-2 gap-10 xl:col-span-7">
             <div>
-              <h2 className="font-display text-xl text-white">Explore</h2>
+              <h2 className="text-xl font-semibold tracking-tight text-white">Explore</h2>
               <ul className="mt-4 grid gap-1">
                 {quickLinks.map((l) => (
                   <li key={l.href}>
@@ -55,7 +56,7 @@ export default function Footer() {
               </ul>
             </div>
             <div>
-              <h2 className="font-display text-xl text-white">Follow Romano Law</h2>
+              <h2 className="text-xl font-semibold tracking-tight text-white">Follow Romano Law</h2>
               <ul className="mt-4 grid gap-1">
                 {socials.map((s) => (
                   <li key={s.name}>
@@ -76,7 +77,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-14 border-t border-white/15 pt-8">
-          <h2 className="font-display text-xl">All practice areas</h2>
+          <h2 className="text-xl font-semibold tracking-tight">All practice areas</h2>
           <div className="mt-4 grid gap-x-10 md:grid-cols-2 xl:grid-cols-5">
             {navigation.practiceAreas.map((area) => (
               <details key={area.href} className="group border-b border-white/15">
@@ -114,6 +115,7 @@ export default function Footer() {
           </SmartLink>
         </div>
       </Container>
+      </div>
     </footer>
   )
 }

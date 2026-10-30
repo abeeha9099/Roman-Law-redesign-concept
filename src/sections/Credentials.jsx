@@ -3,34 +3,37 @@ import { credentials } from '../data/site.js'
 
 export default function Credentials() {
   return (
-    <section aria-labelledby="credentials-title" className="border-t border-line bg-paper py-14 md:py-16">
+    <section aria-labelledby="credentials-title" className="bg-white pb-20 md:pb-24">
       <Container>
-        <h2 id="credentials-title" className="font-display text-2xl text-teal-900 md:text-3xl">
-          Credentials and awards
-        </h2>
-        <ul className="mt-8 grid grid-cols-2 items-center gap-x-6 gap-y-8 sm:grid-cols-4 xl:grid-cols-8">
-          {credentials.map((badge) => {
-            const img = (
-              <img
-                src={badge.src}
-                alt={badge.name}
-                loading="lazy"
-                className="mx-auto h-24 w-full object-contain"
-              />
-            )
-            return (
-              <li key={badge.src}>
-                {badge.href ? (
-                  <a href={badge.href} target="_blank" rel="noopener noreferrer" className="block">
-                    {img}
-                  </a>
-                ) : (
-                  img
-                )}
-              </li>
-            )
-          })}
-        </ul>
+        <div className="rounded-[28px] bg-teal-50 px-6 py-10 md:rounded-[36px] md:px-12 md:py-14">
+          <h2 id="credentials-title" className="text-h3 text-ink">
+            Credentials and awards
+          </h2>
+          <ul className="mt-8 grid grid-cols-2 items-center gap-x-6 gap-y-8 sm:grid-cols-4 xl:grid-cols-8">
+            {credentials.map((badge) => {
+              const img = (
+                <img
+                  src={badge.src}
+                  alt={badge.name}
+                  loading="lazy"
+                  className="mx-auto h-24 w-full object-contain"
+                />
+              )
+              return (
+                <li key={badge.src}>
+                  {badge.href ? (
+                    <a href={badge.href} target="_blank" rel="noopener noreferrer" className="block">
+                      {img}
+                      <span className="sr-only"> (opens in a new tab)</span>
+                    </a>
+                  ) : (
+                    img
+                  )}
+                </li>
+              )
+            })}
+          </ul>
+        </div>
       </Container>
     </section>
   )
